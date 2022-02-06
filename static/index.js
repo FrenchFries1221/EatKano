@@ -55,7 +55,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function modeToString(m) {
-        return m === MODE_NORMAL ? "普通模式" : (m === MODE_ENDLESS ? "无尽模式" : "练习模式");
+        return m === MODE_NORMAL ? "Normal mode" : (m === MODE_ENDLESS ? "Endless mode" : "Practice mode");
     }
 
     w.changeMode = function(m) {
@@ -193,7 +193,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }
         } else if (mode === MODE_ENDLESS) {
             let cps = getCPS();
-            let text = (cps === 0 ? '计算中' : cps.toFixed(2));
+            let text = (cps === 0 ? 'Calculate' : cps.toFixed(2));
             GameTimeLayer.innerHTML = `CPS:${text}`;
         } else {
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
@@ -410,8 +410,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
         $('#GameScoreLayer-CPS').html('CPS&nbsp;' + cps.toFixed(2)); //获取CPS
         $('#GameScoreLayer-score').css('display', mode === MODE_ENDLESS ? 'none' : '')
-            .html('得分&nbsp;' + (normalCond ? score : "<span style='color:red;'>" + score + "</span>"));
-        $('#GameScoreLayer-bast').html('最佳&nbsp;' + scoreToString(best));
+            .html('Score&nbsp;' + (normalCond ? score : "<span style='color:red;'>" + score + "</span>"));
+        $('#GameScoreLayer-bast').html('The Best&nbsp;' + scoreToString(best));
 
         l.css('display', 'block');
     }
@@ -441,7 +441,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             SubmitResults();
         }
 
-        if (cps <= 5) return '试着好好练一下？';
+        if (cps <= 5) return 'Try Again？';
         if (cps <= 8) return 'TCL';
         if (cps <= 10)  return 'TQL';
         if (cps <= 15) return '您';
